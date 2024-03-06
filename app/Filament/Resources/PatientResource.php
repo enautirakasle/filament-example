@@ -36,6 +36,18 @@ class PatientResource extends Resource
                 Forms\Components\Select::make('owner_id')->relationship('owner', 'name')
                     ->searchable()
                     ->preload()
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('email')
+                            ->required()
+                            ->email()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('phone')
+                            ->required()
+                            ->tel(),
+                    ])
                     ->required(),
             ]);
     }
