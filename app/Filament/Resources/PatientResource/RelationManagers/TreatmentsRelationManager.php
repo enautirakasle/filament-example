@@ -18,11 +18,11 @@ class TreatmentsRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('description')
+                Forms\Components\TextInput::make('descripcion')
                     ->required()
                     ->maxLength(255)
                     ->columnSpanFull(),
-            Forms\Components\TextInput::make('notes')
+            Forms\Components\Textarea::make('notas')
                 ->maxLength(65535)
                 ->columnSpanFull(),
             Forms\Components\TextInput::make('price')
@@ -37,7 +37,7 @@ class TreatmentsRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('description')
             ->columns([
-                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('descripcion'),
             ])
             ->filters([
                 //
